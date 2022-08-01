@@ -9,8 +9,12 @@
 package com.entertainment.catalog;
 
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.junit.Test;
@@ -80,7 +84,7 @@ public class CatalogTest {
     Collection<Television> inventory = Catalog.getInventory();
     int maxVolume = 0;
     Television loudest = null;
-    
+
     for (Television tv : inventory) {
       int tvVolume = tv.getVolume();
       if (tvVolume > maxVolume) {
@@ -90,5 +94,11 @@ public class CatalogTest {
     }
     assertEquals("Sony", loudest.getBrand());
     assertEquals(94, loudest.getVolume());
+  }
+  @Test
+  public void testSortByVolume() {
+    List<Television> tvs = new ArrayList<> (Catalog.getInventory());
+    tvs.sort(Comparator.comparingInt(Television::getVolume));
+    System.out.println(tvs);
   }
 }

@@ -8,6 +8,8 @@
  */
 package com.entertainment;
 
+import java.util.Comparator;
+
 public class Television {
   private String brand;
   private int volume;
@@ -46,5 +48,14 @@ public class Television {
   @Override
   public String toString() {
     return getClass().getSimpleName() + " [brand=" + getBrand() + ", volume=" + getVolume() + ", currentChannel=" + getCurrentChannel() + "]";
+  }
+
+  public static class TelevisionChannelComparator
+  implements Comparator<Television> {
+
+    @Override
+    public int compare(Television tv1, Television tv2) {
+      return Integer.compare(tv1.getCurrentChannel(), tv2.getCurrentChannel());
+    }
   }
 }

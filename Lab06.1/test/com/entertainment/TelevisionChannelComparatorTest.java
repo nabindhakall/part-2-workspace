@@ -9,8 +9,10 @@
 package com.entertainment;
 
 import static org.junit.Assert.*;
+
 import java.util.Comparator;
 import org.junit.Test;
+
 
 public class TelevisionChannelComparatorTest {
   private Comparator<Television> comparator = new TelevisionChannelComparator();

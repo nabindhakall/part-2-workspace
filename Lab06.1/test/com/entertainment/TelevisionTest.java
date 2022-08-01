@@ -8,7 +8,12 @@
  */
 package com.entertainment;
 
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import org.junit.Test;
 
 public class TelevisionTest {
@@ -85,8 +90,8 @@ public class TelevisionTest {
   
   @Test
   public void testEquals() {  // brand, volume, display
-    Television tv1 = new Television("RCA", 10, DisplayType.LED);
-    Television tv2 = new Television("RCA", 10, DisplayType.LED);
+    Television tv1 = new Television("RCA", 10, Television.DisplayType.LED);
+    Television tv2 = new Television("RCA", 10, Television.DisplayType.LED);
     assertEquals(tv1, tv2);
     assertEquals(tv2, tv1);
     
@@ -96,8 +101,8 @@ public class TelevisionTest {
   
   @Test
   public void testHashCode() {  // brand, volume, display
-    Television tv1 = new Television("RCA", 10, DisplayType.LED);
-    Television tv2 = new Television("RCA", 10, DisplayType.LED);
+    Television tv1 = new Television("RCA", 10, Television.DisplayType.LED);
+    Television tv2 = new Television("RCA", 10, Television.DisplayType.LED);
     // equal objects must have equal hashcodes
     assertEquals(tv1.hashCode(), tv2.hashCode());
   }
@@ -111,6 +116,7 @@ public class TelevisionTest {
     assertTrue(tv3.compareTo(tv2) > 1);  // Zenith > Sony
     
     tv2.setBrand("RCA");
+
     assertTrue(tv1.compareTo(tv2) == 0); // RCA = RCA
   }
 }
