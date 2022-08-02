@@ -34,30 +34,30 @@ public class StringSortTest {
   public void testSortLambdaMethodCall() {
     System.out.println("testSortLambdaMethodCall:");
     
-    // TODO: sort names by calling private helper method from the lambda body
+    // DONE: sort names by calling private helper method from the lambda body
     System.out.println("Names sort - increasing length - lambda that calls another method:");
-    // names.sort( ... );
-    // System.out.println(names + "\n");
+    names.sort((s1, s2) -> compareStrings(s1, s2));
+    System.out.println(names + "\n");
     
-    // TODO: sort sports by calling private helper method from the lambda body
+    // DONE: sort sports by calling private helper method from the lambda body
     System.out.println("Sports sort - increasing length - lambda that calls another method:");
-    // sports.sort( ... );
-    // System.out.println(sports);
+    sports.sort((s1, s2) -> compareStrings(s1, s2));
+    System.out.println(sports);
   }
     
   @Test
   public void testSortMethodReference() {
     System.out.println("testSortMethodReference:");
     
-    // TODO: sort names by using a method reference
+    // DONE: sort names by using a method reference
     System.out.println("Names sort - increasing length - method reference:");
-    // names.sort( ... );
-    // System.out.println(names + "\n");
+    names.sort(StringSortTest::compareStrings);
+    System.out.println(names + "\n");
     
-    // TODO: sort sports by using a method reference
+    // DONE: sort sports by using a method reference
     System.out.println("Sports sort - increasing length - method reference:");
-    // sports.sort( ... );
-    // System.out.println(sports);    
+    sports.sort(StringSortTest::compareStrings);
+    System.out.println(sports);
   }
   
   private static int compareStrings(String s1, String s2) {
